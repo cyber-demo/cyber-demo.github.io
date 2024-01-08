@@ -74,7 +74,7 @@
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>UC San Diego; <sup>2</sup>USC<br>arxiv 2023</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
                   <div class="column has-text-centered">
@@ -143,7 +143,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
+      <video poster="" id="tree" autoplay controls muted loop height="100%" >
         <!-- Your video here -->
         <source src="static/videos/teaser.mp4"
         type="video/mp4">
@@ -157,14 +157,14 @@
 <!-- End teaser video -->
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <!-- <p> -->
-          <font size="4">  
+          <font size="4.5">  
             By incorporating extensive data augmentation in a simulated environment, CyberDemo outperforms traditional in-domain real-world demonstrations when transferred to the real world, handling diverse physical and visual conditions. Regardless of its affordability and convenience in data collection, CyberDemo outperforms baseline methods in terms of success rates across various tasks and exhibits generalizability with previously unseen objects. For example, it can rotate novel tetra-valve and penta-valve, despite human demonstrations only involving tri-valves. Our research demonstrates the significant potential of simulated human demonstrations for real-world dexterous manipulation tasks.
           </font>
           <!-- </p> -->
@@ -195,36 +195,69 @@
 </section>
 <!-- End youtube video -->
 
+<!-- Method -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Method</h2>
+        <div class="item">
+          <!-- Your image here -->
+          <p> <img src="static/images/pipeline.png" alt="MY ALT TEXT"/></p>
+          <p><div class="content has-text-justified">
+            <font size="4.5">  
+              <b>CyberDemo Pipeline.</b> First, we collect both simulated and real demonstrations via vision-based teleoperation. Following this,
+              we train the policy on simulated data, incorporating the proposed data augmentation techniques. During training, we apply automatic
+              curriculum learning, which incrementally enhances the randomness scale based on task performance. Finally, the policy is fine-tuned with
+              a few real demos before being deployed to the real world.
+          </div>
+        </p>
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <p> <img src="static/images/Algorithm.png" alt="MY ALT TEXT"/></p>
+          <p><div class="content has-text-justified">
+            <font size="4.5">  
+              <b>Auto Curriculum Learning.</b> We begin training from the simplest level, L = 0, signifying no augmentation, and then evaluate the task success rate after several steps of training. The evaluation difficulty aligns with the current level of L. When the success rate surpasses a pre-defined threshold, we advance to the next level, which brings greater augmentation and harder evaluation. If the success rate fails to reach the threshold, we create additional augmented training data and stays at the current level. We continue this iterative process until all levels are completed.
+          </div>
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
+       <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           First image description.
         </h2>
       </div>
-      <div class="item">
+      <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Second image description.
         </h2>
       </div>
-      <div class="item">
+      <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
          Third image description.
        </h2>
      </div>
-     <div class="item">
+     <div class="item"> -->
       <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <!-- <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Fourth image description.
       </h2>
@@ -232,37 +265,68 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- End image carousel -->
-
 
 
 <!-- Video carousel -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+    <div class="container has-text-centered">
+      <h2 class="title is-3">Real World Deployments</h2>
+      <h2 class="title is-4">Pouring Task</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
+            <source src="static/videos/Pouring_in_domain.mp4"
             type="video/mp4">
           </video>
+          <h2 class="title is-5">In Domain</h2>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
+            <source src="static/videos/Pouring_out_of_position.mp4"
             type="video/mp4">
           </video>
+          <h2 class="title is-5">Out of Position</h2>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
             <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/Pouring_random_light_out_of_position.mp4"
             type="video/mp4">
           </video>
+          <h2 class="title is-5">Out of Position + Random Disco Light</h2>
+        </div>
+      </div>
+
+      <h2 class="title is-4">Rotating Task</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Pouring_in_domain.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="title is-5">In Domain</h2>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/Pouring_out_of_position.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="title is-5">Out of Position</h2>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/Pouring_random_light_out_of_position.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="title is-5">Out of Position + Random Disco Light</h2>
         </div>
       </div>
     </div>
